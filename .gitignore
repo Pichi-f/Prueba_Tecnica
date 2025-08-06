@@ -1,0 +1,27 @@
+# Entornos virtuales
+venv/
+.env
+
+# Archivos de compilación
+__pycache__/
+*.pyc
+
+# Archivos temporales o de sistema
+.DS_Store
+*.log
+
+# Configuración local
+*.sqlite3
+*.db
+*.pid
+
+# VSCode
+.vscode/
+
+# Entorno de desarrollo
+.idea/
+*.swp
+
+# Archivos sensibles
+.env
+*.pem
