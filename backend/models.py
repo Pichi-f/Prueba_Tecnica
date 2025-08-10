@@ -19,3 +19,5 @@ class Proveedor(Base):
     telefono = Column(String(20))
     ciudad = Column(String(50))
     fecha_creacion = Column(DateTime, default=datetime.utcnow)
+    estado = Column(Integer, default=1)  
+    eliminado_en = Column(DateTime, nullable=True)
