@@ -2,11 +2,20 @@ from fastapi import FastAPI
 from database import Base, engine
 from auth import router as auth_router
 from routers.proveedor import router as proveedor_router
+from fastapi.middleware.cors import CORSMiddleware
 
 from fastapi import Depends
 from auth import get_current_user 
 
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:5173"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 Base.metadata.create_all(bind=engine)
 
