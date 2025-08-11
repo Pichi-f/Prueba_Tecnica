@@ -6,7 +6,7 @@ class ProveedorBase(BaseModel):
     nombre_empresa: str = Field(..., max_length=100)
     contacto: str = Field(..., max_length=100)
     correo: EmailStr
-    tipo: str = Field(..., max_length=50)  # insumos | transporte | maquinaria | otro
+    tipo: str = Field(..., max_length=50)  
     nit_rtu: str = Field(..., max_length=20)
     telefono: str = Field(..., max_length=20)
     ciudad: str = Field(..., max_length=50)
