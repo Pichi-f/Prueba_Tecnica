@@ -1,0 +1,24 @@
+CREATE DATABASE IF NOT EXISTS prueba_junior;
+USE prueba_junior;
+
+-- Admin
+CREATE TABLE IF NOT EXISTS admin (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  email VARCHAR(100) UNIQUE NOT NULL,
+  hashed_password VARCHAR(255) NOT NULL
+);
+
+-- Proveedor 
+CREATE TABLE IF NOT EXISTS proveedor (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  nombre_empresa VARCHAR(100) NOT NULL,
+  contacto VARCHAR(100) NOT NULL,
+  correo VARCHAR(100) NOT NULL,
+  tipo VARCHAR(50) NOT NULL,           
+  nit_rtu VARCHAR(20) NOT NULL,
+  telefono VARCHAR(20) NOT NULL,
+  ciudad VARCHAR(50) NOT NULL,
+  fecha_creacion DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  estado TINYINT(1) NOT NULL DEFAULT 1,     
+  eliminado_en DATETIME NULL
+);
