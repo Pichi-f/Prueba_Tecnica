@@ -12,24 +12,31 @@ export default function Login() {
     e.preventDefault();
     setL(true);
     try {
-      // usamos tu endpoint JSON del backend
       const { data } = await api.post("/login_json", { email, password });
       localStorage.setItem("token", data.access_token);
       navigate("/");
     } catch {
       alert("Credenciales inválidas");
-    } finally {
-      setL(false);
-    }
+    } finally { setL(false); }
   };
 
   return (
-    <div style={{ maxWidth: 360, margin: "60px auto" }}>
-      <h3>Iniciar sesión</h3>
-      <form onSubmit={submit} style={{ display: "grid", gap: 8 }}>
-        <input placeholder="Email" value={email} onChange={(e)=>setE(e.target.value)} />
-        <input placeholder="Contraseña" type="password" value={password} onChange={(e)=>setP(e.target.value)} />
-        <button disabled={loading}>{loading ? "Entrando..." : "Entrar"}</button>
+    <div className="min-h-[70vh] grid place-items-center">
+      <form onSubmit={submit} className="card bg-base-100 w-full max-w-sm shadow-md">
+        <div className="card-body">
+          <h2 className="card-title">Iniciar sesión</h2>
+          <label className="form-control">
+            <span className="label-text">Email</span>
+            <input className="input input-bordered" value={email} onChange={(e)=>setE(e.target.value)} />
+          </label>
+          <label className="form-control">
+            <span className="label-text">Contraseña</span>
+            <input type="password" className="input input-bordered" value={password} onChange={(e)=>setP(e.target.value)} />
+          </label>
+          <button className={`btn btn-primary ${loading ? "btn-disabled" : ""}`}>
+            {loading ? "Entrando..." : "Entrar"}
+          </button>
+        </div>
       </form>
     </div>
   );
